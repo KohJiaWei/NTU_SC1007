@@ -11,7 +11,7 @@ struct node *next;
 void clear(list_nodes *head);
 int removeNode(list_nodes **ptrHead, int index);
 void print_list(list_nodes *head);
-
+list_nodes* find_node(list_nodes* cur, int index);
 
 //start of main
 int main(){
@@ -47,11 +47,11 @@ return 0;
 
 //////
 //
-int removenode(list_nodes **ptrhead, int index){
+int removeNode(list_nodes **ptrhead, int index){
 list_nodes *current, *temp, *head;
-*ptrhead = current;
-*ptrhead = temp;
-*ptrhead = head;
+current = *ptrhead;
+temp = *ptrhead;
+head = *ptrhead;
 int i = 0;
 
 while(i<index){
@@ -66,10 +66,9 @@ while(i<index){
     return 1;
     }
     else{
-    current->next;
+    current = current->next;
 }
 i++;
-
 }
 return 0;
 }
@@ -97,3 +96,19 @@ temp = temp->next;
 
 }printf("\n");
 }
+
+
+/*
+list_nodes* find_node(list_nodes* cur, int index){
+if(cur==NULL || index <0){
+    return NULL;
+}
+while(index>0){
+    cur = cur->next;
+    if (cur==NULL){
+        return NULL;
+        index--;
+    }
+}
+}
+*/
