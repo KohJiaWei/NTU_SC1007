@@ -11,6 +11,8 @@ struct node *next;
 void clear(list_nodes *head);
 int removeNode(list_nodes **ptrHead, int index);
 void print_list(list_nodes *head);
+
+
 //start of main
 int main(){
 list_nodes *temp, *head = NULL;
@@ -31,11 +33,11 @@ temp->data = i;
 }
 temp->next = NULL;
 
-*pointerhead = head;
+pointerhead = &head;
 printf("Enter the index of the node to be removed:\n");
 scanf("%d",&index);
 
-removeNode(list_nodes **pointerhead, index);
+removeNode(pointerhead, index);
 
 print_list(head);
 clear(head);
@@ -44,33 +46,36 @@ return 0;
 
 
 //////
-////
-//int removenode(list_nodes **ptrhead, int index){
-//list_nodes *current, *temp, *head;
-//*ptrhead = current;
-//*ptrhead = temp;
-//*ptrhead = head;
-//int i = 0;
 //
-//while(i<index){
-//    if(i>0){//delays to access the previous node
-//    temp = temp->next;
-//    }
-//    if(i==index){
-//    current = current->next;
-//    temp->next = current;
-//    printf("After the removal operation, Current List:");
-//    print_list(list_nodes *head);
-//    return 1;
-//    }
-//    else{
-//    current->next;
-//}
-//i++;
-//
-//}
-//return 0;
-//}
+int removenode(list_nodes **ptrhead, int index){
+list_nodes *current, *temp, *head;
+*ptrhead = current;
+*ptrhead = temp;
+*ptrhead = head;
+int i = 0;
+
+while(i<index){
+    if(i>0){//delays to access the previous node
+    temp = temp->next;
+    }
+    if(i==index){
+    current = current->next;
+    temp->next = current;
+    printf("After the removal operation, Current List:");
+    print_list(head);
+    return 1;
+    }
+    else{
+    current->next;
+}
+i++;
+
+}
+return 0;
+}
+
+
+
 
 
 void clear(list_nodes *head){
